@@ -1,0 +1,69 @@
+\begin{thebibliography}{10}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Barba(2016)]{barba2016}
+Lorena~A. Barba.
+\newblock The hard road to reproducibility.
+\newblock \emph{Science}, 354\penalty0 (6308):\penalty0 142, 2016.
+\newblock \doi{10.1126/science.354.6308.142}.
+
+\bibitem[Barba(2012)]{barba2012}
+Lorena~A. Barba.
+\newblock Reproducibility {PI} manifesto.
+\newblock figshare, 2012.
+\newblock Presentation, version 1.
+
+\bibitem[gen(n.d.)]{genaiCourse}
+Generative {AI} for engineering research.
+\newblock Course website, n.d.
+\newblock URL \url{https://barbagroup.github.io/mae6291-genai/}.
+
+\bibitem[Nigh(2025)]{nigh2025}
+Matt Nigh.
+\newblock How to write a great {agents.md}: Lessons from over 2,500
+  repositories.
+\newblock The GitHub Blog, November 2025.
+\newblock URL
+  \url{https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/}.
+
+\bibitem[Feathers(2004)]{feathers2004}
+Michael Feathers.
+\newblock \emph{Working Effectively with Legacy Code}.
+\newblock Prentice Hall, 2004.
+\newblock ISBN 0131177052.
+
+\bibitem[Bartlett(2019)]{bartlett2019}
+Roscoe~A. Bartlett.
+\newblock Working effectively with legacy code.
+\newblock Better Scientific Software, June 2019.
+\newblock URL \url{https://bssw.io/items/working-effectively-with-legacy-code}.
+\newblock Book review.
+
+\bibitem[con(n.d.)]{conventionalCommits}
+Conventional commits, n.d.
+\newblock URL \url{https://www.conventionalcommits.org/}.
+\newblock Specification, version 1.0.0.
+
+\bibitem[B{\"o}ckeler(2026)]{boeckeler2026}
+Birgitta B{\"o}ckeler.
+\newblock Context engineering for coding agents, February 2026.
+\newblock URL
+  \url{https://martinfowler.com/articles/exploring-gen-ai/context-engineering-coding-agents.html}.
+
+\bibitem[adr(n.d.)]{adr}
+Architectural decision records ({ADRs}).
+\newblock Community-maintained documentation, n.d.
+\newblock URL \url{https://adr.github.io/}.
+
+\bibitem[Katz et~al.(2026)]{katz2026}
+Daniel~S. Katz et~al.
+\newblock Research software in an age of {AI}-assisted development: Reflections
+  from edinburgh.
+\newblock Zenodo, May 2026.
+\newblock 27 May 2026.
+
+\end{thebibliography}
