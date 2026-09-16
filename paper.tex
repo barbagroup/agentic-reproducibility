@@ -1,24 +1,46 @@
-\documentclass[11pt,letterpaper]{article}
-\usepackage[T1]{fontenc}
+\documentclass{IEEEcsmag}
 \usepackage[utf8]{inputenc}
-\usepackage[margin=1in]{geometry}
-\usepackage{mathpazo}
-\usepackage{microtype}
+\usepackage{upmath,color}
+\usepackage{nameref}
+\usepackage{flushend}
+\usepackage{graphicx}
 \usepackage{booktabs,tabularx,array}
-\usepackage[numbers,sort&compress]{natbib}
+\usepackage{microtype}
 \usepackage{xurl}
-\usepackage[hidelinks]{hyperref}
+\usepackage[colorlinks,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
+\newcommand{\doi}[1]{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+\usepackage{etoolbox}
+% Local compatibility fixes; the publisher's class is kept unchanged.
+% Terminate the glue assignment so an author's initial L is not read as "filll".
+\apptocmd{\authorfont}{\relax}{}{\errmessage{Author font patch failed}}
+\makeatletter
+% Suppress the class's hard-coded dummy DOI/copyright pending production metadata.
+\AtBeginDocument{\let\thanks\@gobble}
+\makeatother
+
+% Publication details are assigned by the magazine at production.
+\jvol{}
+\jnum{}
+\paper{}
+\jmonth{}
+\jname{IEEE Computing in Science and Engineering}
+\jtitle{Computing in Science \& Engineering}
+\pubyear{}
+\setcounter{secnumdepth}{0}
 \setlength{\emergencystretch}{2em}
-\setlength{\parskip}{0.35em}
-\title{Reproducibility in the Age of Agentic AI:\\ Context Engineering at the Timescale of a Codebase}
-\author{Lorena A. Barba\\[0.4em]
-\small The George Washington University, Washington, D.C.}
-\date{June 2026}
+\raggedbottom
+
 \begin{document}
-\maketitle
+\markboth{Software Engineering and Scientific Computing}{Software Engineering and Scientific Computing}
+\title{Reproducibility in the Age of Agentic AI: Context Engineering at the Timescale of a Codebase}
+\author{Lorena A. Barba}
+\affil{The George Washington University, Washington, D.C.}
+
 \begin{abstract}
 Reproducible research practices are context engineering for AI coding agents. I argue that agents lower the cost of maintaining tests, commit histories, repository structure, instructions, and decision records while making their benefits immediate. Researchers remain responsible for verifying these artifacts and the scientific judgments they encode.
 \end{abstract}
+
+\maketitle
 
 Since the start of my career as a principal investigator, I have been advocating for reproducible research practices. It was the upshot of the toils of my own PhD studies.~\cite{barba2016} Version control, open code development and public release, sharing of research artifacts like figures and data, and posting preprints were all part of my Reproducibility PI Manifesto more than a decade ago.~\cite{barba2012} Over the years, my group established our internal habits for code testing, maintaining clean repository layouts, writing commit messages that explain \emph{why} and not just \emph{what}: these are practices I encouraged on every student cohort, in every course, in every collaboration. Despite the copious writing and speaking about reproducibility, by myself and many others, the uptake has been modest. Friction remains a powerful argument. Each of these practices costs time and effort on a per-session basis that pays back only over many sessions, and graduate students live under the kind of immediate-deadline pressure that punishes long-horizon investment. The research community has accepted it as the cost of doing science with people who are not trained or paid to be software engineers. I admit to becoming disenchanted over the years, even a bit cynical. It thus came as a revelation to find that the calculus has changed, and to see how generative AI is spurring new interest in reproducibility. In this paper, I put forward an updated view on computational reproducibility, for the time of agent-driven code development.
 
@@ -30,15 +52,17 @@ That observation is interesting, but the next step is more consequential. Once y
 
 \section{Good Software Practices Are Now Context Design}
 
-The next surprise was that the answer to "how do I make this system agent-friendly" was largely aligned to "how do I make this system reproducible." We can now reframe good research software engineering practices in the vocabulary of context engineering, while promoting reproducible science. A test suite, a clean commit history, a well-organized repository with a tidy tree, a README, a conventions file, conventional directories, and finally a decision record: each of these elements maps onto a category of agent context, and each can now be produced in a new agent-driven way, changing the economics. The table below enumerates these known elements, matching them with their newly interpreted context category. These are not simple analogies: the mapping is strict. Tests, commits, structure, and decision records are \textbf{context engineering at the timescale of a codebase }rather than the timescale of a conversation. Good software practices have just acquired a new and entirely mechanical reason for existing: agents need them in order to work productively and correctly.
+The next surprise was that the answer to "how do I make this system agent-friendly" was largely aligned to "how do I make this system reproducible." We can now reframe good research software engineering practices in the vocabulary of context engineering, while promoting reproducible science. A test suite, a clean commit history, a well-organized repository with a tidy tree, a README, a conventions file, conventional directories, and finally a decision record: each of these elements maps onto a category of agent context, and each can now be produced in a new agent-driven way, changing the economics. Table~\ref{tab:artifacts} enumerates these known elements, matching them with their newly interpreted context category. These are not simple analogies: the mapping is strict. Tests, commits, structure, and decision records are \textbf{context engineering at the timescale of a codebase }rather than the timescale of a conversation. Good software practices have just acquired a new and entirely mechanical reason for existing: agents need them in order to work productively and correctly.
 
 \subsection{Catalog of Agent-Facing Artifacts}
 
 The claim that good software practices in agent-driven development are context engineering becomes operational after we draw the concrete mapping. Let's consider each artifact that a well-kept research software repository contains, name the context role it plays, and visualize the new and nearly frictionless way it now comes into being. The unifying point is that you no longer manually write these artifacts. In agentic code development your role shifts from author to \textbf{owner and verifier}: the agent drafts the test, the message, the record, and you read it, correct it, and take responsibility for it. The artifact is no less yours for having been drafted by a machine, just as a number produced by a solver you wrote is still your result. You do not need to type the code to own the judgments involved.
 
 
-\begin{table}[htbp]
+\begin{table*}[t]
 \centering
+\caption{Research software artifacts and their roles in reproducibility and agent context.}
+\label{tab:artifacts}
 \footnotesize
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.15}
@@ -53,7 +77,7 @@ Repository structure & Pre-processed context & A layout that can be inherited, n
 Decision record (DECISIONS.md) & Static context & The reasoning that links intent to implementation & Settled questions are not relitigated & Agent drafts the entry; you supply the reasoning \\
 \bottomrule
 \end{tabularx}
-\end{table}
+\end{table*}
 
 The five listed artifacts predate LLMs by years or decades, and each was advocated, with limited success, throughout the era when research code was read only by humans. Two things are new: the cost of producing them has collapsed, because an agent drafts them on request; and they have acquired a second reader, the agent itself, which consults them at the start of and throughout every session. As a bonus, peers can more easily (supported by their agents) reproduce and build upon the work starting from openly shared research artifacts. An artifact that used to pay back slowly over the life of a project now also pays back immediately, in the quality of the next interaction. Let's review them individually.
 
@@ -67,8 +91,8 @@ The five listed artifacts predate LLMs by years or decades, and each was advocat
 
 \textbf{The decision record} (\texttt{DECISIONS.md}) is static context: a running log of consequential choices and the reasoning behind each, in the format long used for \textbf{Architecture Decision Records}---context, decision, alternatives considered, consequences.\footnote{Michael Nygard introduced the Architecture Decision Record in a 2011 post; the community-maintained spec is available online~\cite{adr}.} It is the rarest of these artifacts in research software repositories and the most valuable for agentic work, because it preserves exactly what neither the code nor the tests can show: the reasoning that connected a goal to the particular implementation chosen to meet it. The example below shows the form:
 
-\begin{quote}
-\begin{minipage}{\linewidth}
+\par\medskip
+\noindent\begin{minipage}{\columnwidth}
 \setlength{\parskip}{0.5em}
 \small
 \textbf{2026-03-14: Use sparse CSR format throughout the linear solver}
@@ -82,7 +106,7 @@ The five listed artifacts predate LLMs by years or decades, and each was advocat
 \textbf{Consequences:} All solver code must tolerate sparse inputs. Visualization utilities that currently assume dense arrays will need \texttt{.toarray()} calls, documented in \texttt{CLAUDE.md}.
 
 \end{minipage}
-\end{quote}
+\par\medskip
 
 Without such a record, returning to a convention months later---or meeting it for the first time, as an agent does---you cannot tell whether it was deliberate or incidental, and you will either keep it without understanding or discard it and walk straight back into the problem it was chosen to avoid. With the record, the decision becomes essential context that any reader, human or machine, recovers in seconds. As a reproducibility artifact the decision record closes the gap between what was done and why it was done that way. As an agent artifact it stops the agent from reopening questions you have already settled.
 
@@ -144,6 +168,11 @@ One pledge underwrites all the others, one that the growing concerns in our comm
 
 For most of my career I have argued that researchers should adopt the practices of professional software engineering because doing so makes our science more reliable. I now make the case more readily, for a reason I would not have predicted: the most convincing argument for working reproducibly can be made on the basis of the day's work rather than the distant future. The test you once wrote out of duty, and skipped under deadline, you now write because an agent drafts it in seconds and uses it to check its own work an hour later. The payoff I used to ask people to take on faith can now be shown to be immediate. That, not any argument I could have made before, is what may change how we work from now on.
 
-\bibliographystyle{unsrtnat}
+\bibliographystyle{myIEEEtran}
 \bibliography{references}
+\par\noindent\begin{minipage}{\columnwidth}
+\section*{Author Biography}
+\input{author-bios}
+\end{minipage}
+
 \end{document}
