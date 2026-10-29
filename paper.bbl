@@ -13,12 +13,13 @@ Lorena~A. Barba.
 
 \bibitem[Barba(2012)]{barba2012}
 Lorena~A. Barba.
-\newblock Reproducibility {PI} manifesto.
+\newblock {Reproducibility PI Manifesto}.
 \newblock figshare, 2012.
+\newblock URL \url{https://doi.org/10.6084/m9.figshare.104539.v1}.
 \newblock Presentation, version 1.
 
 \bibitem[gen(n.d.)]{genaiCourse}
-Generative {AI} for engineering research.
+{Generative AI for Engineering Research}.
 \newblock Course website, n.d.
 \newblock URL \url{https://barbagroup.github.io/mae6291-genai/}.
 
@@ -38,13 +39,13 @@ Michael Feathers.
 
 \bibitem[Bartlett(2019)]{bartlett2019}
 Roscoe~A. Bartlett.
-\newblock Working effectively with legacy code.
+\newblock {Working Effectively with Legacy Code}.
 \newblock Better Scientific Software, June 2019.
 \newblock URL \url{https://bssw.io/items/working-effectively-with-legacy-code}.
 \newblock Book review.
 
 \bibitem[con(n.d.)]{conventionalCommits}
-Conventional commits, n.d.
+{Conventional Commits}, n.d.
 \newblock URL \url{https://www.conventionalcommits.org/}.
 \newblock Specification, version 1.0.0.
 
@@ -62,8 +63,9 @@ Architectural decision records ({ADRs}).
 \bibitem[Katz et~al.(2026)]{katz2026}
 Daniel~S. Katz et~al.
 \newblock Research software in an age of {AI}-assisted development: Reflections
-  from edinburgh.
+  from {Edinburgh}.
 \newblock Zenodo, May 2026.
+\newblock URL \url{https://doi.org/10.5281/zenodo.20321134}.
 \newblock 27 May 2026.
 
 \end{thebibliography}
