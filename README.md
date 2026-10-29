@@ -1,6 +1,6 @@
 # Reproducibility in the Age of Agentic AI: Context Engineering at the Timescale of a Codebase 
 
-LaTeX source of the manuscript by Lorena A. Barba, submitted to *Computing in Science and Engineering*, Software Engineering and Scientific Computing department.
+LaTeX source of the manuscript by Lorena A. Barba, submitted to *Computing in Science & Engineering*, Software Engineering and Scientific Computing department.
 The tag `v1` marks the version originally submitted (corresponds to v1 of the preprint); `main` holds the revision prepared after editorial comments and agentic review using the [sciwrite](https://github.com/labarba/sciwrite) skill.
 
 ## Preprint
@@ -23,7 +23,7 @@ The tag `v1` marks the version originally submitted (corresponds to v1 of the pr
 
 ## Notes
 
-Undated web references use `n.d.`. The Katz entry retains the source's abbreviated author list (`Daniel S. Katz and others`); its DOI metadata was unavailable during conversion. Book-review metadata was checked against https://bssw.io/items/working-effectively-with-legacy-code. Other citation details follow the supplied footnotes.
+Undated web references use `n.d.`. The Katz entry retains the source's abbreviated author list (`Daniel S. Katz and others`). Book-review metadata was checked against https://bssw.io/items/working-effectively-with-legacy-code. Other citation details follow the supplied footnotes.
 
 ## v1
 
@@ -32,8 +32,7 @@ LaTeX conversion from manuscript originally written [on Google Doc](https://docs
 Local files (untracked) include: 
 - `source/google-doc.json`: source snapshot preserving document structure and footnotes.
 
-Source: https://docs.google.com/document/d/18NrKpA9MtAYQTHkPsSbvslb3DYeLjPF2n4EoxUMPCYI/edit
 
 ## License and Rights
 
-Please note that the manuscript text is not openly licensed; the author reserves rights to the article content, which will be submitted for publication in a journal. Only fair use applies in this case.
+Please note that the manuscript text is not openly licensed; the author reserves rights to the article content, which will be published in a journal. Only fair use applies in this case.
