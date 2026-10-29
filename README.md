@@ -14,7 +14,7 @@ The tag `v1` marks the version originally submitted (corresponds to v1 of the pr
 ## Files
 
 - `paper.tex`: editable manuscript, 11-point Palatino (`mathpazo`), US Letter, 1-inch margins on all four sides.
-- `references.bib`: ten BibTeX entries covering the nine original citation footnotes. The book and its review are separate entries. Two explanatory footnotes remain, with their references supplied by BibTeX.
+- `references.bib`: seven BibTeX entries. The book and its review are separate entries. Footnotes give URLs for undated web resources (a course site, two specifications) and carry two explanatory notes.
 - `paper.bbl`: generated bibliography, included for source submission.
 - `figures/`: SVG source of Figure 1 and the vector PDF included by the paper; `svg2pdf.sh` regenerates the PDF with headless Google Chrome (`make` runs it when the SVG changes).
 - `revision_plan.md`: writing audit and revision plan for the CiSE revision; line links point to `paper.tex` at tag `v1`.
@@ -23,7 +23,7 @@ The tag `v1` marks the version originally submitted (corresponds to v1 of the pr
 
 ## Notes
 
-Undated web references use `n.d.`. The Katz entry retains the source's abbreviated author list (`Daniel S. Katz and others`). Book-review metadata was checked against https://bssw.io/items/working-effectively-with-legacy-code. Other citation details follow the supplied footnotes.
+The Katz entry retains the source's abbreviated author list (`Daniel S. Katz and others`). Book-review metadata was checked against https://bssw.io/items/working-effectively-with-legacy-code. Other citation details follow the supplied footnotes.
 
 ## v1
 

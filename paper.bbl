@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{7}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -17,11 +17,6 @@ Lorena~A. Barba.
 \newblock figshare, 2012.
 \newblock URL \url{https://doi.org/10.6084/m9.figshare.104539.v1}.
 \newblock Presentation, version 1.
-
-\bibitem[gen(n.d.)]{genaiCourse}
-{Generative AI for Engineering Research}.
-\newblock Course website, n.d.
-\newblock URL \url{https://barbagroup.github.io/mae6291-genai/}.
 
 \bibitem[Nigh(2025)]{nigh2025}
 Matt Nigh.
@@ -44,21 +39,11 @@ Roscoe~A. Bartlett.
 \newblock URL \url{https://bssw.io/items/working-effectively-with-legacy-code}.
 \newblock Book review.
 
-\bibitem[con(n.d.)]{conventionalCommits}
-{Conventional Commits}, n.d.
-\newblock URL \url{https://www.conventionalcommits.org/}.
-\newblock Specification, version 1.0.0.
-
 \bibitem[B{\"o}ckeler(2026)]{boeckeler2026}
 Birgitta B{\"o}ckeler.
 \newblock Context engineering for coding agents, February 2026.
 \newblock URL
   \url{https://martinfowler.com/articles/exploring-gen-ai/context-engineering-coding-agents.html}.
-
-\bibitem[adr(n.d.)]{adr}
-Architectural decision records ({ADRs}).
-\newblock Community-maintained documentation, n.d.
-\newblock URL \url{https://adr.github.io/}.
 
 \bibitem[Katz et~al.(2026)]{katz2026}
 Daniel~S. Katz et~al.
