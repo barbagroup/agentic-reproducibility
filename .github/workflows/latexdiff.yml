@@ -1,0 +1,103 @@
+name: LaTeX Diff
+
+# Builds a PDF that marks every change between a reference version of the
+# manuscript (by default the most recent tag, e.g. the submitted version)
+# and the current commit. Run it from the Actions tab: "LaTeX Diff" > "Run workflow".
+
+on:
+  workflow_dispatch:
+    inputs:
+      compare_with:
+        description: 'Tag or commit to compare with (leave empty for the latest tag)'
+        required: false
+        default: ''
+
+env:
+  TEX_FILE: paper   # main .tex file, without extension
+
+jobs:
+  latexdiff:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v5
+      with:
+        fetch-depth: 0
+
+    - name: Get comparison reference
+      id: ref
+      env:
+        COMPARE_WITH: ${{ github.event.inputs.compare_with }}
+      run: |
+        if [ -n "$COMPARE_WITH" ]; then
+          REF="$COMPARE_WITH"
+        else
+          REF=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+          if [ -z "$REF" ]; then
+            echo "::error::No tags found. Provide a tag/commit via the compare_with input."
+            exit 1
+          fi
+        fi
+        if ! git rev-parse --verify --quiet "$REF^{commit}" > /dev/null; then
+          echo "::error::'$REF' is not a tag or commit in this repository."
+          exit 1
+        fi
+        echo "ref=$REF" >> "$GITHUB_OUTPUT"
+        echo "name=$(echo "$REF" | tr -c 'A-Za-z0-9._\n-' '_')" >> "$GITHUB_OUTPUT"
+        echo "Comparing $REF with $(git rev-parse --short HEAD)"
+
+    - name: Install LaTeX and latexdiff
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          texlive-latex-base \
+          texlive-latex-recommended \
+          texlive-latex-extra \
+          texlive-fonts-recommended \
+          latexdiff
+
+    - name: Build old and new versions (for bibliographies)
+      env:
+        REF: ${{ steps.ref.outputs.ref }}
+      run: |
+        mkdir -p old
+        git archive "$REF" | tar -x -C old
+        # Figures are committed as PDF (generated from their SVG sources),
+        # so no SVG conversion is needed here.
+        for dir in old .; do
+          (
+            cd "$dir"
+            pdflatex -interaction=nonstopmode "$TEX_FILE.tex" > /dev/null || true
+            bibtex "$TEX_FILE" || true
+            pdflatex -interaction=nonstopmode "$TEX_FILE.tex" > /dev/null || true
+            test -f "$TEX_FILE.bbl" || { echo "::error::No bibliography produced in $dir"; exit 1; }
+          )
+        done
+
+    - name: Run latexdiff
+      run: |
+        # --flatten inlines each version's .bbl, so the reference list is
+        # diffed too.
+        latexdiff --flatten --encoding=utf8 \
+          "old/$TEX_FILE.tex" "$TEX_FILE.tex" > diff.tex 2> latexdiff.log
+
+    - name: Compile diff PDF
+      run: |
+        pdflatex -interaction=nonstopmode diff.tex > /dev/null || true
+        pdflatex -interaction=nonstopmode diff.tex > /dev/null || true
+        test -f diff.pdf || { echo "::error::diff.pdf was not produced; see diff.log"; exit 1; }
+        # Report LaTeX errors without failing, as Overleaf does.
+        grep -A2 '^!' diff.log | while IFS= read -r line; do echo "::warning::$line"; done || true
+
+    - name: Upload diff PDF as artifact
+      uses: actions/upload-artifact@v7
+      with:
+        name: latexdiff-${{ steps.ref.outputs.name }}
+        path: |
+          diff.pdf
+          diff.tex
+          diff.log
+          latexdiff.log
