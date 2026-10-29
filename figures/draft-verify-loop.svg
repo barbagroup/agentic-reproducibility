@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" width="760" height="400" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2b2b2b"/>
+    </marker>
+    <marker id="ah-bot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#d9731f"/>
+    </marker>
+    <marker id="ah-human" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2f6aa8"/>
+    </marker>
+    <!-- flat person icon, centered at (0,0), about 44 x 52 -->
+    <g id="person">
+      <circle cx="0" cy="-14" r="11"/>
+      <path d="M-20,26 C-20,6 -11,0 0,0 C11,0 20,6 20,26 Z"/>
+    </g>
+    <!-- flat bot icon, centered at (0,0), about 48 x 54 -->
+    <g id="bot">
+      <line x1="0" y1="-30" x2="0" y2="-22" stroke="#d9731f" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="0" cy="-32" r="4"/>
+      <rect x="-21" y="-22" width="42" height="30" rx="8"/>
+      <rect x="-15" y="12" width="30" height="16" rx="5"/>
+      <circle cx="-8" cy="-8" r="4.5" fill="#ffffff"/>
+      <circle cx="8" cy="-8" r="4.5" fill="#ffffff"/>
+    </g>
+  </defs>
+
+  <rect width="760" height="400" fill="#ffffff"/>
+
+  <!-- ===== Researcher (top left) ===== -->
+  <use href="#person" x="150" y="78" fill="#2f6aa8"/>
+  <text x="150" y="128" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2b2b">Researcher</text>
+  <text x="150" y="145" text-anchor="middle" font-size="11.5" fill="#555555">reads · corrects · owns</text>
+
+  <!-- ===== Agent (bottom left) ===== -->
+  <use href="#bot" x="150" y="300" fill="#d9731f"/>
+  <text x="150" y="350" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2b2b">Agent</text>
+  <text x="150" y="367" text-anchor="middle" font-size="11.5" fill="#555555">drafts</text>
+
+  <!-- invoke: researcher -> agent (left) -->
+  <path d="M118,158 C96,190 96,226 118,256" fill="none" stroke="#2b2b2b" stroke-width="1.5" marker-end="url(#ah-ink)"/>
+  <text x="86" y="203" text-anchor="end" font-size="12" fill="#2b2b2b">invoke</text>
+  <text x="86" y="219" text-anchor="end" font-size="11" fill="#555555" font-family="Menlo, DejaVu Sans Mono, monospace">/commit</text>
+
+  <!-- draft: agent -> researcher (right), with a dashed draft card -->
+  <path d="M182,256 C204,226 204,190 182,158" fill="none" stroke="#2b2b2b" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ah-ink)"/>
+  <g transform="translate(206,190)">
+    <rect x="0" y="0" width="52" height="32" rx="4" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.2" stroke-dasharray="4 3"/>
+    <text x="26" y="20" text-anchor="middle" font-size="11" fill="#2b2b2b" font-family="Menlo, DejaVu Sans Mono, monospace">draft</text>
+  </g>
+
+  <!-- verified: researcher -> repository -->
+  <path d="M182,78 L330,78" fill="none" stroke="#2b2b2b" stroke-width="1.8" marker-end="url(#ah-ink)"/>
+  <text x="256" y="68" text-anchor="middle" font-size="12" fill="#2b2b2b">verified, committed</text>
+
+  <!-- ===== Repository ===== -->
+  <rect x="334" y="40" width="226" height="336" rx="10" fill="#f6f6f4" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="350" y="62" font-size="11" letter-spacing="1.5" fill="#555555">REPOSITORY</text>
+
+  <g font-family="Menlo, DejaVu Sans Mono, monospace">
+    <g transform="translate(350,74)">
+      <rect width="194" height="50" rx="6" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.2"/>
+      <text x="12" y="22" font-size="13" fill="#2b2b2b">AGENTS.md</text>
+      <text x="12" y="39" font-size="10.5" fill="#666666" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">always-on semantic memory</text>
+    </g>
+    <g transform="translate(350,134)">
+      <rect width="194" height="50" rx="6" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.2"/>
+      <text x="12" y="22" font-size="13" fill="#2b2b2b">tests/</text>
+      <text x="12" y="39" font-size="10.5" fill="#666666" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">executable semantic memory</text>
+    </g>
+    <g transform="translate(350,194)">
+      <rect width="194" height="50" rx="6" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.2"/>
+      <text x="12" y="22" font-size="13" fill="#2b2b2b">git log</text>
+      <text x="12" y="39" font-size="10.5" fill="#666666" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">episodic memory</text>
+    </g>
+    <g transform="translate(350,254)">
+      <rect width="194" height="50" rx="6" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.2"/>
+      <text x="12" y="22" font-size="13" fill="#2b2b2b">src/  docs/  README.md</text>
+      <text x="12" y="39" font-size="10.5" fill="#666666" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">pre-processed context</text>
+    </g>
+    <g transform="translate(350,314)">
+      <rect width="194" height="50" rx="6" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.2"/>
+      <text x="12" y="22" font-size="13" fill="#2b2b2b">DECISIONS.md</text>
+      <text x="12" y="39" font-size="10.5" fill="#666666" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">static context</text>
+    </g>
+  </g>
+
+  <!-- context: repository -> agent (immediate) -->
+  <path d="M330,300 L186,300" fill="none" stroke="#d9731f" stroke-width="1.8" marker-end="url(#ah-bot)"/>
+  <text x="256" y="290" text-anchor="middle" font-size="12" fill="#d9731f" font-weight="bold">now</text>
+  <text x="256" y="318" text-anchor="middle" font-size="11.5" fill="#555555">every session</text>
+
+  <!-- ===== Future readers (right) ===== -->
+  <use href="#person" x="656" y="196" fill="#9dbbdc"/>
+  <use href="#person" x="680" y="204" fill="#2f6aa8"/>
+  <text x="668" y="256" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2b2b">Future readers</text>
+  <text x="668" y="273" text-anchor="middle" font-size="11.5" fill="#555555">replicators · reviewers</text>
+  <text x="668" y="288" text-anchor="middle" font-size="11.5" fill="#555555">students</text>
+
+  <!-- repository -> future readers (long horizon) -->
+  <path d="M564,208 L628,208" fill="none" stroke="#2f6aa8" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#ah-human)"/>
+  <text x="596" y="198" text-anchor="middle" font-size="12" fill="#2f6aa8" font-weight="bold">years later</text>
+</svg>

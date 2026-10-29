@@ -5,6 +5,8 @@
 \usepackage{mathpazo}
 \usepackage{microtype}
 \usepackage{booktabs,tabularx,array}
+\usepackage{graphicx}
+\graphicspath{{figures/}}
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage{xurl}
 \usepackage[hidelinks]{hyperref}
@@ -34,7 +36,14 @@ The next surprise was that the answer to "how do I make this system agent-friend
 
 \subsection{Catalog of Agent-Facing Artifacts}
 
-The five artifacts in Table~\ref{tab:artifacts} predate LLMs by years or decades, and each was advocated, with limited success, throughout the era when research code was read only by humans. Two things are new. First, the cost of producing them has collapsed, because an agent drafts them on request. Your role shifts from author to \textbf{owner and verifier}: the agent drafts the test, the message, the record, and you read it, correct it, and take responsibility for it. The artifact is no less yours for having been drafted by a machine, just as a number produced by a solver you wrote is still your result. You do not need to type the code to own the judgments involved. Second, the artifacts have acquired a second reader, the agent itself, which consults them at the start of and throughout every session. An artifact that used to pay back slowly over the life of a project now also pays back immediately, in the quality of the next interaction. Peers benefit too: supported by their own agents, they can more easily reproduce and build upon openly shared work.
+The five artifacts in Table~\ref{tab:artifacts} predate LLMs by years or decades, and each was advocated, with limited success, throughout the era when research code was read only by humans. Two things are new. First, the cost of producing them has collapsed, because an agent drafts them on request. Your role shifts from author to \textbf{owner and verifier}: the agent drafts the test, the message, the record, and you read it, correct it, and take responsibility for it (Figure~\ref{fig:loop}). The artifact is no less yours for having been drafted by a machine, just as a number produced by a solver you wrote is still your result. You do not need to type the code to own the judgments involved. Second, the artifacts have acquired a second reader, the agent itself, which consults them at the start of and throughout every session. An artifact that used to pay back slowly over the life of a project now also pays back immediately, in the quality of the next interaction. Peers benefit too: supported by their own agents, they can more easily reproduce and build upon openly shared work.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{draft-verify-loop}
+\caption{The draft--verify loop. The researcher invokes the agent, which drafts an artifact; the researcher reads, corrects, and takes ownership of the draft before committing it to the repository. The committed artifacts, labeled with their context categories from Table~\ref{tab:artifacts}, then serve two readers: the agent, at the start of every session, and future human readers, years later.}
+\label{fig:loop}
+\end{figure}
 
 \begin{table}[htbp]
 \caption{Agent-facing artifacts in a research software repository: the context category each belongs to, its two functions, and how it is now produced.}
