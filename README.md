@@ -13,7 +13,9 @@ The tag `v1` marks the version originally submitted (corresponds to v1 of the pr
 
 ## Files
 
-- `paper.tex`: editable manuscript, 11-point Palatino (`mathpazo`), US Letter, 1-inch margins on all four sides.
+- `paper.tex`: manuscript in the CiSE magazine layout (`IEEEcsmag`), with an acknowledgment disclosing the use of AI tools. The preprint layout (11-point Palatino, US Letter, 1-inch margins) is on `main`.
+- `author-bios.tex`: author biography and contact address.
+- `IEEEcsmag.cls`, `upmath.sty`, `myIEEEtran.bst`: unmodified files from the CiSE author template (`CiSE_April_2026.zip`).
 - `references.bib`: seven BibTeX entries. The book and its review are separate entries. Footnotes give URLs for undated web resources (a course site, two specifications) and carry two explanatory notes.
 - `paper.bbl`: generated bibliography, included for source submission.
 - `figures/`: SVG source of Figure 1 and the vector PDF included by the paper; `svg2pdf.sh` regenerates the PDF with headless Google Chrome (`make` runs it when the SVG changes).
